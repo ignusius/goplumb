@@ -15,7 +15,7 @@ func mountPlumb() {
 	fsys, fsysErr = client.MountService("plumb")
 }
 
-// Open opens the plumb port names plumb using access mode omode.
+// Open opens the plumb port named port using access mode omode.
 func Open(port string, omode uint8) (*Port, os.Error) {
 	once.Do(mountPlumb)
 	if fsysErr != nil {
@@ -26,7 +26,7 @@ func Open(port string, omode uint8) (*Port, os.Error) {
 
 }
 
-// Send write the message msg to the plumb port.
+// Send writes the message msg to the plumb port.
 func (port *Port) Send(msg *Msg) os.Error {
 	b := packMsg(msg)
 	fid := (*client.Fid)(port)
