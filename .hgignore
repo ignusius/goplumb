@@ -1,0 +1,5 @@
+syntax: glob
+
+8.out
+*.8
+*.a
