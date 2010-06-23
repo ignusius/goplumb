@@ -3,7 +3,7 @@
 package main
 
 import (
-	"plumb"
+	"bitbucket.org/fhs/goplumb/plumb"
 	"goplan9.googlecode.com/hg/plan9"
 )
 

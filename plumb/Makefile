@@ -1,6 +1,7 @@
 include $(GOROOT)/src/Make.$(GOARCH)
 
-TARG=plumb
+TARG=bitbucket.org/fhs/goplumb/plumb
+
 
 GOFILES=\
 	msg.go\
