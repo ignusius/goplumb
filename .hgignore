@@ -3,3 +3,6 @@ syntax: glob
 8.out
 *.8
 *.a
+*.orig
+tags
+examples/client
