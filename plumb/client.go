@@ -3,10 +3,11 @@ package plumb
 
 import (
 	"os"
-	"once"
+	"sync"
 	"goplan9.googlecode.com/hg/plan9/client"
 )
 
+var once sync.Once
 var fsys *client.Fsys
 var fsysErr os.Error
 

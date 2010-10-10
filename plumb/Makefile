@@ -1,4 +1,4 @@
-include $(GOROOT)/src/Make.$(GOARCH)
+include $(GOROOT)/src/Make.inc
 
 TARG=bitbucket.org/fhs/goplumb/plumb
 
