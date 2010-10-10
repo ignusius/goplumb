@@ -12,6 +12,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	defer port.Close()
+
 	msg := &plumb.Msg{
 		Src:  "goplumb",
 		Dst:  "edit",
@@ -21,5 +23,4 @@ func main() {
 		Data: []byte("/etc/passwd:9"),
 	}
 	port.Send(msg)
-	port.Close()
 }
