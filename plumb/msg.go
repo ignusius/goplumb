@@ -1,7 +1,6 @@
 package plumb
 
 import (
-	"bytes"
 	"strconv"
 	"goplan9.googlecode.com/hg/plan9/client"
 )
@@ -24,11 +23,11 @@ func packMsg(msg *Msg) []byte {
 		}
 		attr += name + "=" + val
 	}
-	return bytes.Add([]byte(msg.Src+"\n"+
+	return append([]byte(msg.Src+"\n"+
 		msg.Dst+"\n"+
 		msg.WDir+"\n"+
 		msg.Kind+"\n"+
 		attr+"\n"+
 		strconv.Itoa(len(msg.Data))+"\n"),
-		msg.Data)
+		msg.Data...)
 }
