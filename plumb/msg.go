@@ -1,8 +1,8 @@
 package plumb
 
 import (
+	"code.google.com/p/goplan9/plan9/client"
 	"strconv"
-	"goplan9.googlecode.com/hg/plan9/client"
 )
 
 type Port client.Fid

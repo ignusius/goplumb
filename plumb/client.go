@@ -2,22 +2,20 @@
 package plumb
 
 import (
-	"os"
+	"code.google.com/p/goplan9/plan9/client"
 	"sync"
-	"goplan9.googlecode.com/hg/plan9/client"
 )
 
 var once sync.Once
 var fsys *client.Fsys
-var fsysErr os.Error
-
+var fsysErr error
 
 func mountPlumb() {
 	fsys, fsysErr = client.MountService("plumb")
 }
 
 // Open opens the plumb port named port using access mode omode.
-func Open(port string, omode uint8) (*Port, os.Error) {
+func Open(port string, omode uint8) (*Port, error) {
 	once.Do(mountPlumb)
 	if fsysErr != nil {
 		return nil, fsysErr
@@ -28,7 +26,7 @@ func Open(port string, omode uint8) (*Port, os.Error) {
 }
 
 // Send writes the message msg to the plumb port.
-func (port *Port) Send(msg *Msg) os.Error {
+func (port *Port) Send(msg *Msg) error {
 	b := packMsg(msg)
 	fid := (*client.Fid)(port)
 	n, err := fid.Write(b)
@@ -39,6 +37,6 @@ func (port *Port) Send(msg *Msg) os.Error {
 }
 
 // Close closes the plumb port.
-func (port *Port) Close() os.Error {
+func (port *Port) Close() error {
 	return (*client.Fid)(port).Close()
 }

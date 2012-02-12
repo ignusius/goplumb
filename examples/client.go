@@ -4,7 +4,7 @@ package main
 
 import (
 	"bitbucket.org/fhs/goplumb/plumb"
-	"goplan9.googlecode.com/hg/plan9"
+	"code.google.com/p/goplan9/plan9"
 )
 
 func main() {
