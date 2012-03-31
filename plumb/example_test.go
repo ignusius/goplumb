@@ -1,25 +1,21 @@
-// 8g try.go && 8l try.8 && ./8.out
-
-package main
+package plumb
 
 import (
-	"bitbucket.org/fhs/goplumb/plumb"
 	"code.google.com/p/goplan9/plan9"
 )
 
-func main() {
-	port, err := plumb.Open("send", plan9.OWRITE)
+func ExampleSend() {
+	port, err := Open("send", plan9.OWRITE)
 	if err != nil {
 		panic(err)
 	}
 	defer port.Close()
 
-	msg := &plumb.Msg{
+	msg := &Msg{
 		Src:  "goplumb",
 		Dst:  "edit",
 		WDir: "/home/fhs",
 		Kind: "text",
-		Attr: map[string]string{},
 		Data: []byte("/etc/passwd:9"),
 	}
 	port.Send(msg)
