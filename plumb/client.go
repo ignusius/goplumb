@@ -1,4 +1,5 @@
-// Client library for plumbing messages to plumber(4).
+// Package plumb provides a client side interface for plumbing
+// messages to Plan 9 plumber(4).
 package plumb
 
 import (

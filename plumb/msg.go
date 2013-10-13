@@ -5,7 +5,10 @@ import (
 	"strconv"
 )
 
+// Port represents an open plumber port.
 type Port client.Fid
+
+// Msg is a message that can be send to an open plumber port.
 type Msg struct {
 	Src  string            // source application
 	Dst  string            // destination port
