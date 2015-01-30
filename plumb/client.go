@@ -3,7 +3,7 @@
 package plumb
 
 import (
-	"code.google.com/p/goplan9/plan9/client"
+	"9fans.net/go/plan9/client"
 	"sync"
 )
 
